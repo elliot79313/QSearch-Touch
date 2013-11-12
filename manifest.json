@@ -1,0 +1,29 @@
+{
+  "name": "QSearch Touch(Beta)",
+  "version": "0.12",
+  "description": "追隨世界的腳步, 接觸另一個角落的聲音, 因為一個Touch, 讓你的靈感有所激發",
+  "content_scripts": [
+    {
+      "matches": ["https://www.facebook.com/*","http://www.facebook.com/*"],
+      "js": [ "js/jquery.js","qsdk.js","js/jquery.liveready.js","js/bootstrap.min.js","js/underscore-min.js","fancyBox/lib/jquery.mousewheel-3.0.6.pack.js","fancyBox/source/jquery.fancybox.js","q_content.js"],
+      "css": ["css/bootstrap.min.css","fancyBox/source/jquery.fancybox.css","q_content.css"]
+    }
+  ],
+  "permissions":  [
+    "tabs",
+    "https://*.qsearch.cc/*",
+    "http://*.qsearch.cc/*"
+  ],
+  "background": {
+      "page":"background.html"
+  },
+  "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+  },
+  "content_security_policy": "connect-src *; script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+  "manifest_version": 2,
+  "web_accessible_resources": ["images/*.png","fancyBox/*.*","fancyBox/source/*.png","jquery-2.0.3.min.map","q_front.js"]
+}
+
