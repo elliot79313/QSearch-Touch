@@ -1,6 +1,6 @@
 {
   "name": "QSearch Touch(Beta)",
-  "version": "0.12",
+  "version": "0.20",
   "description": "追隨世界的腳步, 接觸另一個角落的聲音, 因為一個Touch, 讓你的靈感有所激發",
   "content_scripts": [
     {

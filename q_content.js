@@ -96,7 +96,6 @@ var QS_Service = function(){
 	};
 	var _TouchGlobal= function(){
 		
-		
 	 	$(".shareRedesignContainer, a.shareLink").each(function () {
 			if($(this).data("has_touch") != null) return;
 			    $(this).css({"position":"relative"});
@@ -245,7 +244,7 @@ var QS_Service = function(){
 			if((preserveData[Idx]["time"]-new Date)>1800000) throw "undefined";
 			if($tle != null) throw "newsearch";
 			
-			_updateElementCount(preserveData[Idx]["data"].length);
+			_updateElementCount(preserveData[Idx]["size"]);
 			_RenderElement(preserveData[Idx]["data"], Idx);
 			
 		}catch(ex){ //The data is not exist
@@ -258,10 +257,10 @@ var QS_Service = function(){
 			}
 			requestObj.done(function(resp){
 				
-				_updateElementCount(resp.length);
-				_RenderElement(resp,Idx);
+				_updateElementCount(resp["size"]);
+				_RenderElement(resp["docs"],Idx);
 				
-				preserveData[Idx] = {"time": new Date(),"data": resp };
+				preserveData[Idx] = {"time": new Date(),"data": resp["docs"], "size": resp["size"] };
 				
 			});
 		}//End of try catch
@@ -271,8 +270,8 @@ var QS_Service = function(){
 		$.get("https://app.qsearch.cc/storeapi/get", {"tag": keyword[Idx%4] },null,"json")
 		 .done(function(resp){
 			 
-			 _updateElementCount(resp.length);
-			 _RenderElement(resp,Idx);
+			 _updateElementCount(resp["count"]);
+			 _RenderElement(resp["docs"],Idx);
 			
 		 });
 	}
